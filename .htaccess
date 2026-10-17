@@ -1,13 +1,13 @@
 # HTTPS y la direccion sin www los fuerza Coolify (proxy) antes de llegar aqui
 RewriteEngine On
 
-# Paginas de la web anterior
-RewriteRule ^nosotros/?$ /nosotros.html [L,R=301]
-RewriteRule ^servicios/?$ /servicios.html [L,R=301]
-RewriteRule ^contacto/?$ /contacto.html [L,R=301]
-RewriteRule ^aviso-legal/?$ /aviso-legal.html [L,R=301]
-RewriteRule ^politica-de-privacidad/?$ /privacidad.html [L,R=301]
-RewriteRule ^(politica-de-cookies|personalizar-cookies)/?$ /cookies.html [L,R=301]
+# Paginas de la web anterior (con https:// porque Apache no ve el HTTPS del proxy)
+RewriteRule ^nosotros/?$ https://%{HTTP_HOST}/nosotros.html [L,R=301]
+RewriteRule ^servicios/?$ https://%{HTTP_HOST}/servicios.html [L,R=301]
+RewriteRule ^contacto/?$ https://%{HTTP_HOST}/contacto.html [L,R=301]
+RewriteRule ^aviso-legal/?$ https://%{HTTP_HOST}/aviso-legal.html [L,R=301]
+RewriteRule ^politica-de-privacidad/?$ https://%{HTTP_HOST}/privacidad.html [L,R=301]
+RewriteRule ^(politica-de-cookies|personalizar-cookies)/?$ https://%{HTTP_HOST}/cookies.html [L,R=301]
 
 # Entradas de spam publicadas en la web anterior: eliminadas definitivamente (410)
 RewriteRule ^decouvrez-pourquoi-les-casinos-en-ligne-neteller-sont-si-populaires/?$ - [G]
