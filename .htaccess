@@ -1,0 +1,49 @@
+# HTTPS y la direccion sin www los fuerza Coolify (proxy) antes de llegar aqui
+RewriteEngine On
+
+# Paginas de la web anterior
+RewriteRule ^nosotros/?$ /nosotros.html [L,R=301]
+RewriteRule ^servicios/?$ /servicios.html [L,R=301]
+RewriteRule ^contacto/?$ /contacto.html [L,R=301]
+RewriteRule ^aviso-legal/?$ /aviso-legal.html [L,R=301]
+RewriteRule ^politica-de-privacidad/?$ /privacidad.html [L,R=301]
+RewriteRule ^(politica-de-cookies|personalizar-cookies)/?$ /cookies.html [L,R=301]
+
+# Entradas de spam publicadas en la web anterior: eliminadas definitivamente (410)
+RewriteRule ^decouvrez-pourquoi-les-casinos-en-ligne-neteller-sont-si-populaires/?$ - [G]
+RewriteRule ^dicas-de-especialistas-para-jogar-baccarat-no-casino-esc/?$ - [G]
+RewriteRule ^uporaba-roobet-demo-racuna-za-izboljsanje-vasih-igralnih-vescin/?$ - [G]
+RewriteRule ^bingobonga-best-casinos-hvorfor-de-er-et-sikkert-valg-for-seriose-spillere/?$ - [G]
+RewriteRule ^estrategias-de-gestion-de-fondos-para-triunfar-en-avia-master/?$ - [G]
+RewriteRule ^como-mantener-la-calma-bajo-presion-al-estilo-del-pirate-chicken/?$ - [G]
+RewriteRule ^hogyan-valasszuk-ki-a-legjobb-shuffle-kaszino-kripto-opciokat-az-online-jatekhoz/?$ - [G]
+RewriteRule ^comment-le-spinfest-casino-revolutionne-la-scene-des-jeux-de-casino/?$ - [G]
+RewriteRule ^azur-slot-casino-kezdo-utmutato-amit-tudnia-kell-az-elso-lepesekhez/?$ - [G]
+RewriteRule ^betmatch-online-az-elo-kaszinojatekok-izgalmai-otthonrol/?$ - [G]
+RewriteRule ^como-elegir-los-juegos-mas-rentables-en-betbona-para-aumentar-tus-ingresos/?$ - [G]
+RewriteRule ^the-evolution-of-online-gambling-and-blazespins-casinos-role-in-it/?$ - [G]
+RewriteRule ^alles-wat-je-moet-weten-over-de-winorama-5-euro-gratis-bonus/?$ - [G]
+RewriteRule ^vaznost-sigurnosti-i-zastite-podataka-u-psk-online-casinu/?$ - [G]
+RewriteRule ^a-legjobb-tippek-es-trukkok-a-bison-casino-app-hasznalatahoz/?$ - [G]
+RewriteRule ^exploring-the-delightful-world-of-fusion-cuisine-a-journey-through-taste/?$ - [G]
+RewriteRule ^category/ - [G]
+RewriteRule ^(wp-admin|wp-content|wp-includes|wp-login\.php|xmlrpc\.php) - [G]
+
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+# Cache del navegador para imagenes, tipografias, estilos y scripts
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/javascript "access plus 1 week"
+</IfModule>
+
+# Compresion
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml
+</IfModule>
