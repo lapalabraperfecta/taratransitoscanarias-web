@@ -20,5 +20,9 @@ RUN rm -rf /var/www/html/docker /var/www/html/Dockerfile \
  && find /var/www/html -type f -exec chmod 0644 {} + \
  && chmod +x /usr/local/bin/entrypoint.sh
 
+# Coolify usa esta comprobación para saber si la web responde (y para desplegar sin cortes)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD curl -fsS -o /dev/null http://localhost/ || exit 1
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["apache2-foreground"]
