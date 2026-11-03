@@ -1,8 +1,8 @@
 <?php
 // Envia por email las solicitudes del formulario de presupuesto.
 
-$destino = 'contacto@taratransitoscanarias.com';
-$remitente = 'contacto@taratransitoscanarias.com';
+$destino = 'taratransitos@gmail.com';
+$remitente = 'taratransitos@gmail.com';
 
 function responder($ok, $estado)
 {
@@ -14,7 +14,7 @@ function responder($ok, $estado)
         header('Content-Type: text/html; charset=utf-8');
         echo $ok
             ? '<p>Solicitud enviada. Te responderemos en breve.</p>'
-            : '<p>No se ha podido enviar la solicitud. Escríbenos a contacto@taratransitoscanarias.com o llama al 699 060 401.</p>';
+            : '<p>No se ha podido enviar la solicitud. Escríbenos a taratransitos@gmail.com o llama al 699 060 401.</p>';
         echo '<p><a href="/">Volver a la web</a></p>';
     }
     exit;
