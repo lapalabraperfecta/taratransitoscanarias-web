@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Campo trampa invisible: si llega relleno, lo ha enviado un robot.
-if (campo('web') !== '') {
+if (campo('trampa') !== '') {
     responder(true, 200);
 }
 
